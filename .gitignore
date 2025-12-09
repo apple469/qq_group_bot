@@ -1,0 +1,6 @@
+bot_config/
+data/
+logs/
+napcat/
+plugins/
+config.yaml
