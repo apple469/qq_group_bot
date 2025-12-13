@@ -213,3 +213,6 @@ logs/
 napcat/
 plugins/
 config.yaml
+QQChatlog_Group.json
+update_user_profile.json
+update_group_profile.json

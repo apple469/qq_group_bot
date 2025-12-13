@@ -12,9 +12,10 @@ def setup_config():
         os.makedirs(CONFIG_DIR)
     
         print("-----配置向导-----")
-        api_url = input("请输入你的api地址(openai格式): ").strip()
-        api_key = input("请输入你的api密钥: ").strip()
+        api_url = input("请输入你的ai api地址(openai格式): ").strip()
+        api_key = input("请输入你的ai api密钥: ").strip()
         model = input("请输入你要使用的ai模型: ").strip()
+        search_key = input("请输入你的搜索api密钥(默认使用tavily): ").strip()
         bot_qq = int(input("请输入机器人qq号: ").strip())
         root_qq = int(input("请输入管理员qq号(用于管理机器人): ").strip())
 
@@ -22,6 +23,7 @@ def setup_config():
             f.write(f"API_URL={api_url}\n")
             f.write(f"API_KEY={api_key}\n")
             f.write(f"MODEL={model}\n")
+            f.write(f"SEARCH_KEY={search_key}\n")
             f.write(f"BOT_QQ={bot_qq}\n")
             f.write(f"ROOT_QQ={root_qq}\n")
 
