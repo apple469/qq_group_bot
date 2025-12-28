@@ -1,10 +1,16 @@
 import os
 import yaml
-
+import time
+import secrets
 
 CONFIG_DIR = "bot_config"
 CONFIG_FILE = os.path.join(CONFIG_DIR, "config.yaml")
 SECRETS_FILE = os.path.join(CONFIG_DIR, ".env")
+
+
+def generate_salt():
+    """Generate random salt for hashing"""
+    return secrets.token_hex(16)
 
 
 def setup_config():
@@ -20,14 +26,20 @@ def setup_config():
         bot_qq = int(input("请输入机器人qq号: ").strip())
         root_qq = int(input("请输入管理员qq号(用于管理机器人): ").strip())
 
+        salt = generate_salt()
+
         with open(SECRETS_FILE, "w", encoding="utf-8") as f:
             f.write(f"API_URL={api_url}\n")
             f.write(f"API_KEY={api_key}\n")
+            f.write(f"LOW_COST_API_URL={api_url}\n")
+            f.write(f"LOW_COST_API_KEY={api_key}\n")
             f.write(f"MODEL={model}\n")
+            f.write(f"LOW_COST_MODEL={model}\n")
             f.write(f"IMAGE_MODEL={image_model}\n")
             f.write(f"SEARCH_KEY={search_key}\n")
             f.write(f"BOT_QQ={bot_qq}\n")
             f.write(f"ROOT_QQ={root_qq}\n")
+            f.write(f"SALT={salt}\n")
 
         # 机器人设置
         persona = input("请输入机器人的人设: ").strip()
@@ -37,6 +49,7 @@ def setup_config():
                 "persona": persona
             }, f, default_flow_style=False, allow_unicode=True)
 
-        print("配置完成~")
+        print("配置完成~~~")
+        time.sleep(2)
     else:
         return

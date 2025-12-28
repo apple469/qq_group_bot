@@ -213,3 +213,13 @@ logs/
 napcat/
 plugins/
 config.yaml
+qq_bot_plugins/dan.py
+qq_bot_plugins/onnx_models/model.onnx
+qq_bot_plugins/onnx_models/vocab.txt
+qq_chat.db
+bind_qa.json
+qa.json
+qq_bot_plugins/cscs.py
+qq_bot_plugins/ocr.py
+qq_bot_message_data.db
+qq_bot_vector_space.index
